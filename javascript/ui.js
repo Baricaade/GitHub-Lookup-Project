@@ -1,18 +1,24 @@
 export default class UI {
-    static updateUserInformation(information) {
+    static showUserInformation(user) {
         document.querySelector('.information').innerHTML = `
-            <ul>
-                <li>Name: ${information.name}</li>
-                <li>Company: ${information.company}</li>
-                <li>Blog: ${information.blog}</li>
-                <li>Location: ${information.location}</li>
-                <li>Email: ${information.email}</li>
-                <li>Bio: ${information.bio}</li>
-            </ul>
+            <span class="badge bg-primary">Repos: ${user.repos}</span>
+            <span class="badge bg-success">Gists: ${user.gists}</span>
+            <span class="badge bg-info">Followers: ${user.followers}</span>
+            <span class="badge bg-secondary">Following: ${user.following}</span>
+            <hr>
+            <p><strong>Name:</strong> ${user.name}</p>
+            <hr>
+            <p><strong>Location:</strong> ${user.location}</p>
+            <hr>
+            <p><strong>Bio:</strong> ${user.bio}</p>
+            <hr>
+            <p><strong>Company:</strong> ${user.company}</p>
+            <hr>
+            <p><strong>Email:</strong> ${user.email}</p>
         `
     }
 
-    static updateUserAvatar(avatarUrl) {
-        document.querySelector('.avatar').innerHTML = `<img src="${avatarUrl}"></img>`
+    static showUserAvatar(user) {
+        document.querySelector('.avatar').innerHTML = `<img src="${user.avatarUrl}"></img>`
     }
 }

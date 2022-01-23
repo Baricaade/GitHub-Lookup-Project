@@ -1,3 +1,5 @@
+const BADGE_COLORS = ['bg-primary', 'bg-secondary', 'bg-success', 'bg-info']
+
 const information = document.querySelector('.information');
 const avatar = document.querySelector('.avatar');
 
@@ -6,13 +8,18 @@ export default class UI {
         // Clear any existing content
         information.innerHTML = '';
 
+        // Counter for looping through badge colors
+        let counter = 0;
+
         // Display the user's metadata
         for(let property in user.metadata) {
             const element = document.createElement('span')
             const text = document.createTextNode(`${property}: ${user.metadata[property]}`);
-            element.classList.add('badge', 'bg-primary');
+            element.classList.add('badge', BADGE_COLORS[counter]);
             element.appendChild(text);
             information.appendChild(element);
+            
+            counter++;
         }
 
         // Add an HR tag below our metadata
